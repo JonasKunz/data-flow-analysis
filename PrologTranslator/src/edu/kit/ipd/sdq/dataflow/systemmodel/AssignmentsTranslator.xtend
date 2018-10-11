@@ -189,7 +189,7 @@ class AssignmentsTranslator {
 			for(precond : preconditions.get()) {
 				preconditionsPrefix += precond.getPredicateForRestriction(attrib) + ",";
 			}
-			preconditionsPrefix = preconditions + "!,";
+			preconditionsPrefix = preconditionsPrefix + "!,";
 		}
 		
 		var String pred = assiContext.predicate.getPredicate(ltContext.currentStack,assi.variable,attrib,value);
