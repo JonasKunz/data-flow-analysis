@@ -62,6 +62,8 @@ public class VariableAssignmentItemProvider extends ItemProviderAdapter implemen
 			addVariablePropertyDescriptor(object);
 			addAttributePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
+			addIsAttributeWildcardPropertyDescriptor(object);
+			addIsValueWildcardPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -128,6 +130,38 @@ public class VariableAssignmentItemProvider extends ItemProviderAdapter implemen
 						return ((VariableAssignment) thisObject).getPossibleValues();
 					}
 				});
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Attribute Wildcard feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsAttributeWildcardPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_VariableAssignment_isAttributeWildcard_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_VariableAssignment_isAttributeWildcard_feature", "_UI_VariableAssignment_type"),
+						SystemModelPackage.Literals.VARIABLE_ASSIGNMENT__IS_ATTRIBUTE_WILDCARD, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Value Wildcard feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsValueWildcardPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_VariableAssignment_isValueWildcard_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_VariableAssignment_isValueWildcard_feature", "_UI_VariableAssignment_type"),
+						SystemModelPackage.Literals.VARIABLE_ASSIGNMENT__IS_VALUE_WILDCARD, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -212,6 +246,8 @@ public class VariableAssignmentItemProvider extends ItemProviderAdapter implemen
 		case SystemModelPackage.VARIABLE_ASSIGNMENT__VARIABLE:
 		case SystemModelPackage.VARIABLE_ASSIGNMENT__ATTRIBUTE:
 		case SystemModelPackage.VARIABLE_ASSIGNMENT__VALUE:
+		case SystemModelPackage.VARIABLE_ASSIGNMENT__IS_ATTRIBUTE_WILDCARD:
+		case SystemModelPackage.VARIABLE_ASSIGNMENT__IS_VALUE_WILDCARD:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case SystemModelPackage.VARIABLE_ASSIGNMENT__TERM:
