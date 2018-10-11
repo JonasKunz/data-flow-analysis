@@ -8,10 +8,14 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import edu.kit.ipd.sdq.dataflow.systemmodel.Configuration
+import org.eclipse.ocl.pivot.utilities.PivotStandaloneSetup
+import org.eclipse.ocl.xtext.completeocl.CompleteOCLStandaloneSetup
 
 class Main {
 	
 	def static System loadSystem(String filePath) {
+		PivotStandaloneSetup.doSetup();
+		CompleteOCLStandaloneSetup.doSetup();
 		SystemModelPackage.eINSTANCE.eClass();
         val reg = Resource.Factory.Registry.INSTANCE;
       	reg.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
